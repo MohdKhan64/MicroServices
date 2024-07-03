@@ -1,0 +1,22 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9999/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user/**
+          - id: course-service
+            uri: lb://course-SERVICE
+            predicates:
+              - Path=/course/**

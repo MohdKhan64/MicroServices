@@ -1,0 +1,29 @@
+package com.example.microservice_course_management.model;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Data
+@Entity
+@Table(name = "course")
+public class Course {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "author")
+    private String author;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "publish_date")
+    private LocalDate publishDate;
+
+}
